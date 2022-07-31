@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A POC WF
+    steps:
+#############################################################################################
+      - name: Check out code
+        uses: actions/checkout@v2
+############################################################################################
+      - name: Print the object
+        id: print
+        uses: saar-win/personal-projects/new_action@v2
+        with:
+          FILE: service.yml
+          ACTIONS_ACCESS_USERNAME: ${{ secrets.ACTIONS_ACCESS_USERNAME }}
+          ACTIONS_ACCESS_KEY: ${{ secrets.ACTIONS_ACCESS_KEY }}
+#
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
