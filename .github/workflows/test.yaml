@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - $FILE
+      - ${{ github.workspace }}
   pull_request:
     branches:
       - main
     paths:
-      - $FILE
+      - ${{ github.workspace }}
 jobs:
 #############################################################################
 
