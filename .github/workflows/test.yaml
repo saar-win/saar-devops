@@ -4,12 +4,12 @@ on:
       - main
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
 #############################################################################
-  
-  hello_world_job:
+
+  devops_open_pr:
     runs-on: ubuntu-latest
     env:
       FILE: service.yml
@@ -19,12 +19,11 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          filters: |
-            service-yml:
-              - '${{ env.FILE }}'
-        
-        if: steps.changes.outputs.service-yml == 'true'
+          files: |
+            - '${{ env.FILE }}'
+
       - name: Print the object
+        if: steps.changes.outputs.files == 'true'
         id: print
         uses: saar-win/personal-projects/new_action@v2
         with:
