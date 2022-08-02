@@ -4,21 +4,30 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - main  
 
 jobs:
+#############################################################################
+  
   hello_world_job:
     runs-on: ubuntu-latest
+    env:
+      FILE: service.yml
     name: A POC WF
     steps:
-#############################################################################################
-      - name: Check out code
-        uses: actions/checkout@v2
-############################################################################################
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            service-yml:
+              - '${{ env.FILE }}'
+        
+        if: steps.changes.outputs.service-yml == 'true'
       - name: Print the object
         id: print
         uses: saar-win/personal-projects/new_action@v2
         with:
-          FILE: service.yml
+          FILE: ${{ env.FILE }}
           ACTIONS_ACCESS_USERNAME: ${{ secrets.ACTIONS_ACCESS_USERNAME }}
           ACTIONS_ACCESS_KEY: ${{ secrets.ACTIONS_ACCESS_KEY }}
