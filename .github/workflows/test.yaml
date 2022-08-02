@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ${{ env.FILE }}
+    # paths:
+    #   - ${{ env.FILE }}
   pull_request:
     branches:
       - main
-    paths:
-      - ${{ env.FILE }}
+    # paths:
+    #   - ${{ env.FILE }}
 jobs:
 #############################################################################
 
