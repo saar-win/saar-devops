@@ -1,32 +1,24 @@
+env:
+  FILE: service.yml
 on:
   push:
     branches:
       - main
     paths:
-      - 'service.yml'
+      - ${{ env.FILE }}
   pull_request:
     branches:
       - main
     paths:
-      - 'service.yml'
-
+      - ${{ env.FILE }}
 jobs:
 #############################################################################
 
   devops_open_pr:
     runs-on: ubuntu-latest
-    env:
-      FILE: service.yml
     name: A POC WF
     steps:
-      # - uses: actions/checkout@v2
-      # - uses: dorny/paths-filter@v2
-      #   id: changes
-      #   with:
-      #     filters: |
-      #       files:
-      #         - '${{ env.FILE }}'
-
+      - uses: actions/checkout@v2
       - name: Print the object
         id: print
         uses: saar-win/personal-projects/new_action@v2
