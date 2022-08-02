@@ -2,9 +2,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'service.yml'
   pull_request:
     branches:
       - main
+    paths:
+      - 'service.yml'
 
 jobs:
 #############################################################################
@@ -19,8 +23,9 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          files: |
-            - '${{ env.FILE }}'
+          filters: |
+            files:
+              - '${{ env.FILE }}'
 
       - name: Print the object
         if: steps.changes.outputs.files == 'true'
