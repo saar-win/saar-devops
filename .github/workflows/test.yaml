@@ -19,16 +19,15 @@ jobs:
       FILE: service.yml
     name: A POC WF
     steps:
-      - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            files:
-              - '${{ env.FILE }}'
+      # - uses: actions/checkout@v2
+      # - uses: dorny/paths-filter@v2
+      #   id: changes
+      #   with:
+      #     filters: |
+      #       files:
+      #         - '${{ env.FILE }}'
 
       - name: Print the object
-        if: steps.changes.outputs.files == 'true'
         id: print
         uses: saar-win/personal-projects/new_action@v2
         with:
