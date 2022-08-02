@@ -1,16 +1,16 @@
-env:
-  FILE: service.yml
 on:
   push:
     branches:
       - main
     paths:
-      - ${{ github.workspace }}
+      - service.yml
   pull_request:
     branches:
       - main
     paths:
-      - ${{ github.workspace }}
+      - service.yml
+env:
+  FILE: service.yml
 jobs:
 #############################################################################
 
