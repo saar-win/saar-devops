@@ -26,6 +26,6 @@ jobs:
         id: print
         uses: saar-win/personal-projects/new_action@v2
         with:
-          FILE: ${{ env.FILE }}
+          FILE: ${{ github.workspace }}/${{ env.FILE }}
           ACTIONS_ACCESS_USERNAME: ${{ secrets.ACTIONS_ACCESS_USERNAME }}
           ACTIONS_ACCESS_KEY: ${{ secrets.ACTIONS_ACCESS_KEY }}
