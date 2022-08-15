@@ -14,22 +14,26 @@ on:
         description: 'The name of the service you want to generate'
         required: true
         type: string
-      service:
+      SERVICE:
         description: 'Generate a service template'
         required: true
         type: bool
-      deployment:
+        default: "false"
+      DEPLOYMENT:
         description: 'Generate a deployment template'
         required: true
         type: bool
-      secrets:
+        default: "false"
+      SECRETS:
         description: 'Generate a secrets template'
         required: true
         type: bool
-      configmap:
+        default: "false"
+      CONFIGMAP:
         description: 'Generate a configmap template'
         required: true
         type: bool
+        default: "false"
 ########################
 jobs:
 #############################################################################################
@@ -37,6 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SERVICE_NAME: ${{ github.event.client_payload.service_name }}
+      SERVICE: ${{ github.event.client_payload.service }}
+      DEPLOYMENT: ${{ github.event.client_payload.deployment }}
+      SECRETS: ${{ github.event.client_payload.secrets }}
+      CONFIGMAP: ${{ github.event.client_payload.configmap }}
     name: A POC WF
     steps:
       - uses: actions/checkout@v2
