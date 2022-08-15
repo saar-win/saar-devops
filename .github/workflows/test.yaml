@@ -13,7 +13,28 @@ on:
       service_name:
         description: 'The name of the service you want to generate'
         required: true
-        type: string
+        type: bool
+        default: 'false'
+      service:
+        description: 'The name of the service you want to generate'
+        required: true
+        type: bool
+        default: 'false'
+      deployment:
+        description: 'The name of the service you want to generate'
+        required: true
+        type: bool
+        default: 'false'
+      secrets:
+        description: 'The name of the service you want to generate'
+        required: true
+        type: bool
+        default: 'false'
+      configmap:
+        description: 'The name of the service you want to generate'
+        required: true
+        type: bool
+        default: 'false'
 ########################
 jobs:
 #############################################################################################
