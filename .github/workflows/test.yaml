@@ -19,6 +19,8 @@ jobs:
 #############################################################################################
   devops_open_pr:
     runs-on: ubuntu-latest
+    env:
+      SERVICE_NAME: ${{ github.event.client_payload.service_name }}
     name: A POC WF
     steps:
       - uses: actions/checkout@v2
