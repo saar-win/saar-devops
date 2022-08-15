@@ -15,22 +15,27 @@ on:
         required: true
         type: string
       DEPLOYMENT:
-        description: 'Generate a deployment template'
+        description: 'Generate a deployment template file'
         required: true
         type: boolean
         default: false
       SERVICE:
-        description: 'Generate a service template'
+        description: 'Generate a service template file'
         required: true
         type: boolean
         default: false
       SECRETS:
-        description: 'Generate a secrets template'
+        description: 'Generate a secrets template file'
         required: true
         type: boolean
         default: false
       CONFIGMAP:
-        description: 'Generate a configmap template'
+        description: 'Generate a configmap template file'
+        required: true
+        type: boolean
+        default: false
+      MIGRATION:
+        description: 'Generate a migration template file'
         required: true
         type: boolean
         default: false
@@ -45,6 +50,7 @@ jobs:
       DEPLOYMENT_TEMPLATE: ${{ github.event.inputs.deployment }}
       SECRETS_TEMPLATE: ${{ github.event.inputs.secrets }}
       CONFIGMAP_TEMPLATE: ${{ github.event.inputs.configmap }}
+      MIGRATION_TEMPLATE: ${{ github.event.inputs.migration }}
     name: A POC WF
     steps:
       - uses: actions/checkout@v2
