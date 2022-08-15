@@ -2,17 +2,17 @@ service:
   templates:
     deployment: true
     migration: false
-    service: false
+    service: true
     secrets: false
     configmap: false
-  name: test
+  name: saar
   resources:
     requests:
-      cpu: 1Mi
-      memory: 3Gi
+      cpu: 10m
+      memory: 3Mi
     limits:
-      memory: 508Mi
-      cpu: 90m
+      memory: 500Mi
+      cpu: 10m
   hpa:
     minReplicas: 2
     maxReplicas: 10
@@ -26,12 +26,31 @@ service:
     name: test-volume
     emptyDir: {}
   envs:
-    - SAAR_TEST
-    - SAAR_TEST_1
-    - SAAR_TEST_2
-    - SAAR_TEST_3
-    - SAAR_TEST_4
-    - SAAR_TEST_5
+    services:
+      - AUTHENTICATION_SERVICE
+      - BILLING_SERVICE
+      - SERVICE_TEST_2
+      - SERVICE_TEST_3
+      - SERVICE_TEST_4
+      - SERVICE_TEST_5
+    databases:
+      - PROXY_DB
+      - DB_TEST_2
+      - DB_TEST_3
+      - DB_TEST_4
+      - DB_TEST_5
+    third_party:
+      - SAAR_SECRET
+      - PAYPAL_SECRET
+      - PAYPAL_SECRET_KEY
+      - TH_TEST_4
+      - TH_TEST_5
+    aws:
+      - NOTIFICATIONS_AWS
+      - SQS_TEST_2
+      - SQS_TEST_3
+      - SQS_TEST_4
+      - SQS_TEST_5
   secrets:
     - ACTIONS_ACCESS_USERNAME
     - ACTIONS_ACCESS_KEY
