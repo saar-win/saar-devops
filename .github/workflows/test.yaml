@@ -40,11 +40,11 @@ jobs:
   devops_open_pr:
     runs-on: ubuntu-latest
     env:
-      SERVICE_NAME: ${{ github.event.client_payload.service_name }}
-      SERVICE: ${{ github.event.client_payload.service }}
-      DEPLOYMENT: ${{ github.event.client_payload.deployment }}
-      SECRETS: ${{ github.event.client_payload.secrets }}
-      CONFIGMAP: ${{ github.event.client_payload.configmap }}
+      SERVICE_NAME: ${{ github.event.inputs.service_name }}
+      SERVICE: ${{ github.event.inputs.service }}
+      DEPLOYMENT: ${{ github.event.inputs.deployment }}
+      SECRETS: ${{ github.event.inputs.secrets }}
+      CONFIGMAP: ${{ github.event.inputs.configmap }}
     name: A POC WF
     steps:
       - uses: actions/checkout@v2
