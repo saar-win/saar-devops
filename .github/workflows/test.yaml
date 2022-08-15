@@ -17,23 +17,23 @@ on:
       SERVICE:
         description: 'Generate a service template'
         required: true
-        type: bool
-        default: "false"
+        type: boolean
+        default: false
       DEPLOYMENT:
         description: 'Generate a deployment template'
         required: true
-        type: bool
-        default: "false"
+        type: boolean
+        default: false
       SECRETS:
         description: 'Generate a secrets template'
         required: true
-        type: bool
-        default: "false"
+        type: boolean
+        default: false
       CONFIGMAP:
         description: 'Generate a configmap template'
         required: true
-        type: bool
-        default: "false"
+        type: boolean
+        default: false
 ########################
 jobs:
 #############################################################################################
