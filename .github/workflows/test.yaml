@@ -1,19 +1,22 @@
 on:
+########################
   push:
-    branches:
-      - main
-    paths:
-      - service.yml
+    branches: [ main ]
+    paths: [ service.yml ]
+########################
   pull_request:
-    branches:
-      - main
-    paths:
-      - service.yml
-env:
-  FILE: service.yml
+    branches: [ main ]
+    paths: [ service.yml ]
+########################
+  workflow_dispatch:
+    inputs:
+      service_name:
+        description: 'The name of the service you want to generate'
+        required: true
+        type: string
+########################
 jobs:
-#############################################################################
-
+#############################################################################################
   devops_open_pr:
     runs-on: ubuntu-latest
     name: A POC WF
@@ -26,3 +29,4 @@ jobs:
           FILE: ${{ github.workspace }}/${{ env.FILE }}
           ACTIONS_ACCESS_USERNAME: ${{ secrets.ACTIONS_ACCESS_USERNAME }}
           ACTIONS_ACCESS_KEY: ${{ secrets.ACTIONS_ACCESS_KEY }}
+#############################################################################################
