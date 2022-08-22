@@ -1,0 +1,30 @@
+{
+    "configmap": false,
+    "migration": false,
+    "secrets": false,
+    "service": true,
+    "deployment": {
+        "resources": {
+            "requests": {
+                "cpu": true,
+                "memory": true
+            },
+            "limits": {
+                "cpu": true,
+                "memory": true
+            }
+        }
+    },
+    "hpa": {
+        "minReplicas": true,
+        "maxReplicas": true,
+        "averageMEMORY": true,
+        "averageCPU": true
+    },
+    "pdb": {
+        "minAvailable": true
+    },
+    "forks":{
+        "numberOfForks": true
+    }
+}
