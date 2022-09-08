@@ -14,7 +14,7 @@ service:
       memory: 500Mi
       cpu: 10m
   hpa:
-    minReplicas: 2
+    minReplicas: 3
     maxReplicas: 10
     averageMEMORY: 35
     averageCPU: 35
